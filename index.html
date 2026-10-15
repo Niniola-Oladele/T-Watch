@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>T-Watch | Security Log Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Dashboard Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h2>T-Watch</h2>
+            <p>SECURITY LOG ANALYZER</p>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Monitoring Dashboard
+        </div>
+
+    </header>
+
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+
+        <section class="welcome">
+
+            <div>
+                <p class="eyebrow">SECURITY OVERVIEW</p>
+
+                <h1>Security Dashboard</h1>
+
+                <p>
+                    Monitor login activity and identify suspicious patterns.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <p>Total Events</p>
+                <h2 id="total-events">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Successful Logins</p>
+                <h2 id="successful-logins">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Failed Logins</p>
+                <h2 id="failed-logins">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <p>Security Alerts</p>
+                <h2 id="security-alerts">0</h2>
+            </div>
+
+        </section>
+
+
+        <!-- Security Alerts -->
+        <section class="panel">
+
+            <div class="section-heading">
+                <h2>Security Alerts</h2>
+                <span class="badge">DETECTED EVENTS</span>
+            </div>
+
+            <div id="alerts-container">
+
+                <p class="empty-message">
+                    No alerts to display yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Security Logs -->
+        <section class="panel">
+
+            <div class="section-heading">
+                <h2>Security Logs</h2>
+                <span class="badge">ACTIVITY LOG</span>
+            </div>
+            
+            <div class="upload-container">
+                <label for="csv-upload" class="upload-button">
+                    Upload Security Logs (CSV)
+                </label>
+
+                <input
+                type="file"
+                id="csv-upload"
+                accept=".csv"
+                hidden
+                >
+
+                <button type="button" id="clear-logs" class="clear-button">
+                    Clear Logs
+                </button>
+                <button type="button" id="download-report" class="download-button">
+                    Download Report
+                </button>
+            </div>
+
+
+            <div id="column-mapping" class="column-mapping" hidden>
+                <h3>Match Your CSV Columns</h3>
+                <p>
+                    Match each field to the correct column in your CSV file.
+                    Suggested matches are selected automatically, but you can change them.
+                </p>
+
+                <div class="mapping-fields">
+                    <label>
+                        Timestamp
+                        <select id="map-timestamp"></select>
+                    </label>
+
+                    <label>
+                        Username
+                        <select id="map-username"></select>
+                    </label>
+
+                    <label>
+                        IP Address
+                        <select id="map-ip"></select>
+                    </label>
+
+                    <label>
+                        Event
+                        <select id="map-event"></select>
+                    </label>
+
+                    <label>
+                        Status
+                        <select id="map-status"></select>
+                    </label>
+                </div>
+
+                <button type="button" id="analyze-csv" class="upload-button">
+                    Analyze CSV
+                </button>
+            </div>
+
+            <div class="search-container">
+                <input
+                type="text"
+                id="search-input"
+                placeholder="Search by username or IP address..."
+                >
+
+                <select id="status-filter">
+                    <option value="All">All Events</option>
+                    <option value="Success">Successful Logins</option>
+                    <option value="Failed">Failed Logins</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Username</th>
+                            <th>IP Address</th>
+                            <th>Event</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="logs-table">
+
+                        <tr>
+                            <td colspan="5" class="empty-message">
+                                Security logs will appear here.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>T-Watch &copy; 2026 | Niniola Oladele</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

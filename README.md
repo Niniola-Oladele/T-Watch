@@ -32,7 +32,7 @@ Developed as a defensive security portfolio project, ThreatWatch combines web de
 
 Once deployed, you can access ThreatWatch through the live demo link:
 
-**Live Demo:** [Add your deployed website URL here]
+**Live Demo:** [https://t-watch.netlify.app/]
 
 Open the link in your browser, upload a CSV file containing security logs, review the suggested column mappings, and click **Analyze CSV** to begin.
 
